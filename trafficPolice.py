@@ -44,6 +44,10 @@ def query9():
     pass
 
 
+def movement():
+    pass
+
+
 def police(id):
     global cur
     cur.execute("select * from location")
