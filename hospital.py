@@ -80,5 +80,3 @@ def hospital(id):
             print("Total messages come ", len(msgs))
         elif choose == 3:
             query3(id)
-
-hospital(1)
