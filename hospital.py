@@ -58,6 +58,8 @@ def query3(id):  # Ambulance assign
         cnt -= 1
         cur.execute(
             """UPDATE hospital SET availBed = %d where id = %d""" % (cnt, id))
+        cur.execute(
+            """update ambulance set inuse = 1 where id = %d""" % availAmbulances[k])
     mydb.commit()
 
 
@@ -78,6 +80,5 @@ def hospital(id):
             print("Total messages come ", len(msgs))
         elif choose == 3:
             query3(id)
-
 
 hospital(1)
