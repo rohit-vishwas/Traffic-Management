@@ -289,6 +289,3 @@ def citizen(id):
             query7(id)
         else:
             query8(id)
-
-
-citizen(4)
