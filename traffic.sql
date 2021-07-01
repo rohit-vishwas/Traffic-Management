@@ -1,6 +1,7 @@
 -- show databases;
 use trafficManagementSystem;
 
+drop table if exists logIN;
 drop table if exists callHospital;
 drop table if exists informPetrolPump;
 drop table if exists deliveryBoy;
@@ -12,9 +13,14 @@ drop table if exists hospital;
 drop table if exists citizen;
 drop table if exists location;
 
+create table logIN(
+ID int not null, role int not null, password varchar(20) not null,
+primary key(ID, role)
+);
+
 create table location(
 X int not null, Y int not null,
-primary key(X, Y), cost int not null default 0, east int not null default 0, west int not null default 0, south int not null default 0, north int not null default 0
+primary key(X, Y), cost int not null default 0
 );
 
 create table citizen(
@@ -82,5 +88,16 @@ registrationNumber int not null, type int not null, document float not null defa
 primary key(registrationNumber),foreign key (citizenID) references citizen(ID)
 );
 
-
-
+-- alter table deliveryBoy add inuse int not null default 0;
+-- select * from callHospital;
+-- select * from ambulance;
+-- select * from petrolPump;
+-- select * from citizen;
+-- -- select * from location;
+-- select * from hospital;
+-- truncate table informPetrolpump;
+-- update ambulance set inuse = 1 where id = 5;
+-- select * from deliveryBoy;
+-- select count(pumpID) from deliveryBoy where inuse <> 1 and pumpID = 1;
+-- select * from informPetrolpump;
+-- select * from logIN;
